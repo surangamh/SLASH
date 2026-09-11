@@ -1117,7 +1117,7 @@ set_property APERTURES {{0x208_0000_0000 32G}} [get_bd_intf_ports S_VIRT_03]
 proc add_dcmac_inst {} {
 
   set DCMAC0_ENABLED 1
-  set DCMAC1_ENABLED 1
+  set DCMAC1_ENABLED 0
 
   ## Each DCMAC can support 2 QSFP56 interfaces
   ## select how many QSFP56 you want for each DCMAC, provided they are enabled
@@ -1259,15 +1259,15 @@ import_files -fileset sources_1 -norecurse [file normalize "{{ vf }}"]
   # Restore previous instance
   current_bd_instance $__oldCurInst
   assign_bd_address -offset 0x020302040400 -range 0x00000100 -target_address_space [get_bd_addr_spaces S_AXILITE_INI] [get_bd_addr_segs qsfp_0_n_1/control_intf/axi_gpio_datapath/S_AXI/Reg] -force
-  assign_bd_address -offset 0x020303040400 -range 0x00000100 -with_name SEG_axi_gpio_datapath_Reg_1 -target_address_space [get_bd_addr_spaces S_AXILITE_INI] [get_bd_addr_segs qsfp_2_n_3/control_intf/axi_gpio_datapath/S_AXI/Reg] -force
+  #assign_bd_address -offset 0x020303040400 -range 0x00000100 -with_name SEG_axi_gpio_datapath_Reg_1 -target_address_space [get_bd_addr_spaces S_AXILITE_INI] [get_bd_addr_segs qsfp_2_n_3/control_intf/axi_gpio_datapath/S_AXI/Reg] -force
   assign_bd_address -offset 0x020302040000 -range 0x00000100 -target_address_space [get_bd_addr_spaces S_AXILITE_INI] [get_bd_addr_segs qsfp_0_n_1/control_intf/axi_gpio_gt_control/S_AXI/Reg] -force
-  assign_bd_address -offset 0x020303040000 -range 0x00000100 -with_name SEG_axi_gpio_gt_control_Reg_1 -target_address_space [get_bd_addr_spaces S_AXILITE_INI] [get_bd_addr_segs qsfp_2_n_3/control_intf/axi_gpio_gt_control/S_AXI/Reg] -force
+  #assign_bd_address -offset 0x020303040000 -range 0x00000100 -with_name SEG_axi_gpio_gt_control_Reg_1 -target_address_space [get_bd_addr_spaces S_AXILITE_INI] [get_bd_addr_segs qsfp_2_n_3/control_intf/axi_gpio_gt_control/S_AXI/Reg] -force
   assign_bd_address -offset 0x020302040200 -range 0x00000100 -target_address_space [get_bd_addr_spaces S_AXILITE_INI] [get_bd_addr_segs qsfp_0_n_1/control_intf/axi_gpio_monitor/S_AXI/Reg] -force
-  assign_bd_address -offset 0x020303040200 -range 0x00000100 -with_name SEG_axi_gpio_monitor_Reg_1 -target_address_space [get_bd_addr_spaces S_AXILITE_INI] [get_bd_addr_segs qsfp_2_n_3/control_intf/axi_gpio_monitor/S_AXI/Reg] -force
+  #assign_bd_address -offset 0x020303040200 -range 0x00000100 -with_name SEG_axi_gpio_monitor_Reg_1 -target_address_space [get_bd_addr_spaces S_AXILITE_INI] [get_bd_addr_segs qsfp_2_n_3/control_intf/axi_gpio_monitor/S_AXI/Reg] -force
   assign_bd_address -offset 0x020302040600 -range 0x00000100 -target_address_space [get_bd_addr_spaces S_AXILITE_INI] [get_bd_addr_segs qsfp_0_n_1/control_intf/axi_gpio_reset_txrx/S_AXI/Reg] -force
-  assign_bd_address -offset 0x020303040600 -range 0x00000100 -with_name SEG_axi_gpio_reset_txrx_Reg_1 -target_address_space [get_bd_addr_spaces S_AXILITE_INI] [get_bd_addr_segs qsfp_2_n_3/control_intf/axi_gpio_reset_txrx/S_AXI/Reg] -force
+  #assign_bd_address -offset 0x020303040600 -range 0x00000100 -with_name SEG_axi_gpio_reset_txrx_Reg_1 -target_address_space [get_bd_addr_spaces S_AXILITE_INI] [get_bd_addr_segs qsfp_2_n_3/control_intf/axi_gpio_reset_txrx/S_AXI/Reg] -force
   assign_bd_address -offset 0x020302000000 -range 0x00040000 -target_address_space [get_bd_addr_spaces S_AXILITE_INI] [get_bd_addr_segs qsfp_0_n_1/DCMAC_subsys/dcmac_0_core/s_axi/Reg] -force
-  assign_bd_address -offset 0x020303000000 -range 0x00040000 -target_address_space [get_bd_addr_spaces S_AXILITE_INI] [get_bd_addr_segs qsfp_2_n_3/DCMAC_subsys/dcmac_1_core/s_axi/Reg] -force
+  #assign_bd_address -offset 0x020303000000 -range 0x00040000 -target_address_space [get_bd_addr_spaces S_AXILITE_INI] [get_bd_addr_segs qsfp_2_n_3/DCMAC_subsys/dcmac_1_core/s_axi/Reg] -force
 
 {% else %}
   # No QSFP <-> NoC links required
