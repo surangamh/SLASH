@@ -15,7 +15,7 @@
 
 ### Enable the DCMAC core(s) that you wish to use
 set DCMAC0_ENABLED 1
-set DCMAC1_ENABLED 1
+set DCMAC1_ENABLED 0
 
 ## Each DCMAC can support 2 QSFP56 interfaces
 ## select how many QSFP56 you want for each DCMAC, provided they are enabled
