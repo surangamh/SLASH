@@ -25,7 +25,7 @@ class ArgsClass:
     print = 1
     dev = None
     verbose = 1
-    loopback = None
+    loopback = 1
     keep_alive = 0
     align_rx = 1
     traffic_test = 0
@@ -85,7 +85,7 @@ def main(args):
     """Now we can generate some traffic"""
 
     tgen0 = TrafficGenerator(args.dev, resource=0, base_offset=0x004C_0000)
-    tgen1 = TrafficGenerator(args.dev, resource=0, base_offset=0x0050_0000)
+    #tgen1 = TrafficGenerator(args.dev, resource=0, base_offset=0x0050_0000)
 
     tgen0.flits = 22
     tgen0.dest = 0
@@ -106,13 +106,13 @@ def main(args):
         print('\n')
 
     dcmac0 = DCMAC(args.dev, base_offset=get_ip_offset(DCMAC_BASEADDR, 0))
-    dcmac1 = DCMAC(args.dev, base_offset=get_ip_offset(DCMAC_BASEADDR, 1))
+    #dcmac1 = DCMAC(args.dev, base_offset=get_ip_offset(DCMAC_BASEADDR, 1))
 
     print(f'{dcmac0.tx_stats(verbose=1)=}')
     print(f'{dcmac0.rx_stats(verbose=1)=}')
 
-    print(f'{dcmac1.tx_stats(verbose=1)=}')
-    print(f'{dcmac1.rx_stats(verbose=1)=}')
+    #print(f'{dcmac1.tx_stats(verbose=1)=}')
+    #print(f'{dcmac1.rx_stats(verbose=1)=}')
 
     if args.udp:
         print(f'{nl0.get_freq=}')
@@ -121,8 +121,8 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('-u', '--udp', action='store_true',
-                        help='Use UDP logic')
+    #parser.add_argument('-u', '--udp', action='store_true',
+    #                    help='Use UDP logic')
     parser = add_common_args(parser, verbose=True)
     args = parser.parse_args()
     main(args)
