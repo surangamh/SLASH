@@ -24,7 +24,7 @@ def _get_shift_and_mask(key: str) -> tuple[int, int]:
 
 class AxiGPIOMonitor(AxiGpioMMIO):
 
-    def __init__(self, device: str = 'e2', resource: int = 2,
+    def __init__(self, device: str = '0d', resource: int = 2,
                  base_offset: int = 0x0, gpio_index: int = 0):
         self._gpio_index = gpio_index
         super().__init__(device, resource, base_offset)

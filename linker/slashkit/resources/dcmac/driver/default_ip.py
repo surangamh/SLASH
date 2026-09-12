@@ -38,7 +38,7 @@ class DefaultIP(GenericMMIO):
     _intenable = 0x08
     _intstatus = 0x10
 
-    def __init__(self, device: str = 'e2', resource: int = 2,
+    def __init__(self, device: str = '0d', resource: int = 2,
                  base_offset: int = 0x0, debug: bool = False,
                  regs: dict = None):
         super().__init__(device, resource, base_offset, debug)

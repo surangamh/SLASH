@@ -17,7 +17,7 @@ def _get_bar_path(dev, resource: int = 2, debug=True):
 
 class PCIeMapBar:
     """Wrapper class to allows MMIO read and write operations from PCIe BAR"""
-    def __init__(self, device: str = 'e2', resource: int = 2,
+    def __init__(self, device: str = '0d', resource: int = 2,
                  barsize: int = BAR_SIZE, debug: bool = True):
         self._bar = None
         self._barpath = _get_bar_path(device, resource, debug)

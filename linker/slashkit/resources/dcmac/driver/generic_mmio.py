@@ -7,7 +7,7 @@ from utils import int_types, hex_or_int, add_common_args
 
 
 class GenericMMIO:
-    def __init__(self, device: str = 'e2', resource: int = 2,
+    def __init__(self, device: str = '0d', resource: int = 2,
                  base_offset: int = 0x0, debug: bool = False):
         self._base_offset = base_offset
         self._pciemmio = PCIeMapBar(device, resource, debug=debug)

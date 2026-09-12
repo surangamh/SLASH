@@ -58,7 +58,7 @@ class NetworkLayer(DefaultIP):
         ]
     )
 
-    def __init__(self, device: str = 'e2', resource: int = 2,
+    def __init__(self, device: str = '0d', resource: int = 2,
                  base_offset: int = 0x0, debug: bool = False):
         super().__init__(device, resource, base_offset, debug)
         self.registers = nl_regs

@@ -33,7 +33,7 @@ def get_ip_offset(baseoffset: int, mac_id: int):
 
 def add_common_args(parser, enable_mac: bool = True, verbose: bool = False):
     """Add common arguments to the parser"""    
-    default_dev = os.environ['V80_DEV'] if 'V80_DEV' in os.environ else 'e2'
+    default_dev = os.environ['V80_DEV'] if 'V80_DEV' in os.environ else '0d'
     parser.add_argument('-d', '--dev', help=f"PCIe device Bus ID, e.g., '{default_dev}'",
                         default=default_dev)
     if enable_mac:
