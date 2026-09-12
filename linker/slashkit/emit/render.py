@@ -43,7 +43,7 @@ def export_package(package, out_dir: str | Path) -> None:
             with resources.as_file(traversable) as in_path:
                 shutil.copy(in_path, out_path)
         elif traversable.is_dir():
-            out_path.mkdir()
+            out_path.mkdir(exist_ok=True)
             for sub_traversable in traversable.iterdir():
                 impl(sub_traversable, out_path / sub_traversable.name)
 

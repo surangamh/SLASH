@@ -234,7 +234,7 @@ class RM_KIND(Enum):
 
 def _run_rm_build(config: LinkerConfiguration, rm_kind: RM_KIND) -> None:
     # Copy all base IP cores into the ip repository
-    config.ip_repository.mkdir(parents=True)
+    config.ip_repository.mkdir(parents=True, exist_ok=True)
     export_package("slashkit.resources.base.iprepo",
                    config.ip_repository / "slash_base")
 
