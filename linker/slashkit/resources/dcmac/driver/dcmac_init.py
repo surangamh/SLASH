@@ -85,7 +85,7 @@ def dcmac_logic_init(args):
         print(f'{gt_gpio.txpostcursor=}')
 
     if args.loopback is not None:
-        if args.loopback != args.loopback:
+        if gt_gpio.loopback != args.loopback:
             gt_gpio.loopback = args.loopback
             time.sleep(0.1)
             print(f'Loopback mode set to: {gt_gpio.loopback}')

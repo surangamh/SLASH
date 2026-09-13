@@ -16,7 +16,7 @@ shift_map = {
     'loopback': {'shift': 9, 'bits': 3},
     'txprecursor': {'shift': 12, 'bits': 6},
     'txpostcursor': {'shift': 18, 'bits': 6},
-    'txmaincursor': {'shift': 24, 'bits': 6},
+    'txmaincursor': {'shift': 24, 'bits': 7},
     'rxcdrhold': {'shift': 31, 'bits': 1},
 }
 
