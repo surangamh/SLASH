@@ -15,17 +15,17 @@ interfaces IP, MAC addresses as well as the UDP socket table.
 """
 
 DCMAC_BASEADDR = 0x200_0000
-TRAFFICGEN_BASEADDR = 0x1_0000
+TRAFFICGEN_BASEADDR = 0x400_2000
 #NL_BASEADDR = 0x400_0000
 
 
 class ArgsClass:
     dcmac = 0
-    init = True
+    init = False
     print = 1
     dev = 0
     verbose = 1
-    loopback = 2
+    loopback = 1
     keep_alive = 0
     align_rx = 1
     traffic_test = 1
@@ -37,6 +37,13 @@ def main(args):
     init_args.dev = args.dev
     """Init DCMAC 0"""
     dcmac_logic_init(init_args)
+
+    tgen0 = TrafficGenerator(args.dev, resource=0, base_offset=0x004C_0000)
+
+    tgen0.flits = 22
+    tgen0.dest = 0
+    tgen0.start()
+    time.sleep(1)
 
     dcmac0 = DCMAC(args.dev, base_offset=get_ip_offset(DCMAC_BASEADDR, 0))
     print(f'{dcmac0.tx_stats(verbose=1)=}')
